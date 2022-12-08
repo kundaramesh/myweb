@@ -1,10 +1,19 @@
 pipeline{
 	agent any
+	
+	environment{
+		PATH = "/opt/maven3/bin:$PATH"
+	}
 	stages{
 		stage("Git Checkout"){
 			steps{
 				git credentialsId: 'MyDeclarativePipelineJob', url: 'https://github.com/kundaramesh/myweb'
 			}
 		}
+		stage("Maven Build"){
+			steps{
+				sh "mvn clean package"
+			}
+		}		
 	}
 }
