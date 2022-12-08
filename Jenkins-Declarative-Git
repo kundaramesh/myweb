@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage("Git Checkout"){
 			steps{
-				git credentialsId: 'MyDeclarativePipelineJob', url: 'https://github.com/kundaramesh/myweb'
+				git branch: 'main', credentialsId: 'MyDeclarativePipelineJob', url: 'https://github.com/kundaramesh/myweb'
 			}
 		}
 	}
